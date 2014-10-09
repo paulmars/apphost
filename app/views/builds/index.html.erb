@@ -3,6 +3,7 @@
 <% @builds.each do |build| %>
   <div>
     <%= link_to build.ipa_digest, build.ipa.url %>
+    <%= link_to "download", download_url(build.ipa_digest) %>
     <%= link_to "plist", plist_url(build.ipa_digest) %>
   </div>
 <% end %>

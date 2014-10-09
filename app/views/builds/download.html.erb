@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 download" style="margin-top: 4em;">
+      <div class="appicon"></div>
+      <h1>Jacuzzi</h1>
+      <h4>Hot Tub Picture Party</h4>
+
+      <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(build) %>">
+        Download
+      </a>
+    </div>
+  </div>
+</div>
+
+<% content_for :meta do %>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+<% end %>
