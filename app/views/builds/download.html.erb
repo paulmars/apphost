@@ -5,7 +5,7 @@
       <h1>Jacuzzi</h1>
       <h4>Hot Tub Picture Party</h4>
 
-      <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(@build, protocol: "https") %>">
+      <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
         Download
       </a>
     </div>
