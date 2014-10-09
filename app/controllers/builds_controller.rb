@@ -1,5 +1,5 @@
 class BuildsController < ApplicationController
-  before_action :authenticate_user!, except: "plist"
+  before_action :authenticate_user!, except: [:plist, :download]
 
   def new
   end
