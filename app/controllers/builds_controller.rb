@@ -16,4 +16,9 @@ class BuildsController < ApplicationController
     @builds = Build.all
   end
 
+  def plist
+    @build = Build.find_by_ipa_digest(params[:digest])
+    render layout: false
+  end
+
 end

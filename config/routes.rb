@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get "/new", to: "builds#new", as: "new_build"
   post "/new", to: "builds#create"
 
+  get "/:digest/plist", to: "builds#plist", as: "plist"
+
 end
