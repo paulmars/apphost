@@ -21,7 +21,7 @@ end
 
 class Build < ActiveRecord::Base
 
-  validates :ipa_digest, uniqueness: true
+  # validates :ipa_digest, uniqueness: true
 
   mount_uploader :ipa, IpaUploader
 

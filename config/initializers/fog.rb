@@ -1,4 +1,4 @@
-# if ENV['AWS_KEY'] && ENV['AWS_SECRET']
+if ENV['AWS_KEY'] && ENV['AWS_SECRET']
 
 CarrierWave.configure do |config|
   config.fog_credentials = {
@@ -17,4 +17,4 @@ CarrierWave.configure do |config|
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
 
-# end
+end
