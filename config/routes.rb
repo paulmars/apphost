@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
+  root to: "builds#index"
+
   get "/", to: "builds#index"
   
-  get "/new", to: "builds#new"
+  get "/new", to: "builds#new", as: "new_build"
   post "/new", to: "builds#create"
 
 end

@@ -1,2 +1,7 @@
-<h1>Builds#new</h1>
-<p>Find me in app/views/builds/new.html.erb</p>
+<%= form_for :build, :html => {:multipart => true} do |f| %>
+  <p>
+    <label>Ipa</label>
+    <%= f.file_field :ipa %>
+  </p>
+  <%= f.submit "upload" %>
+<% end %>
