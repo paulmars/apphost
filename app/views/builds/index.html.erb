@@ -4,8 +4,11 @@
 
 <% @builds.each do |build| %>
   <div class="build">
-    <%= link_to build.ipa_digest, build.ipa.url %>
-    <%= link_to "download", download_url(build.ipa_digest) %>
-    <%= link_to "plist", plist_url(build.ipa_digest) %>
+    <%= link_to "Download", download_url(build.ipa_digest) %>
+    <div class="pull-right">
+        <%= time_ago_in_words build.created_at %>
+        <%= link_to "plist", plist_url(build.ipa_digest) %>
+        <%= build.ipa_digest %>
+    </div>
   </div>
 <% end %>
