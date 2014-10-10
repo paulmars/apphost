@@ -30,4 +30,4 @@ gem 'carrierwave'
 
 gem 'devise', '3.2.1'
 gem 'rails_admin', '0.6.2'
-gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-sass', '~> 3.2.0'

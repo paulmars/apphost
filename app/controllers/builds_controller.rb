@@ -1,5 +1,6 @@
 class BuildsController < ApplicationController
   before_action :authenticate_user!, except: [:plist, :download]
+  layout "normal"
 
   def new
   end
@@ -18,6 +19,7 @@ class BuildsController < ApplicationController
 
   def download
     @build = Build.find_by_ipa_digest(params[:digest])
+    render layout: "application"
   end
 
   def plist

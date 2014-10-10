@@ -1,0 +1,29 @@
+<% content_for :content do %>
+
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Apphoster</h3>
+      </div>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+  <%= yield %>
+
+  <div class="footer">
+  <p>
+    
+  </p>
+  </div>
+
+</div> 
+
+<% end %>
+
+
+
+<%= render template: "layouts/application" %>
