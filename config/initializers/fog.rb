@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
   else
     config.fog_directory  = 'apphosterd'                     # required
   end
-  config.fog_public     = false                                   # optional, defaults to true
+  config.fog_public     = true                                   # optional, defaults to true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
 
