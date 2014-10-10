@@ -11,7 +11,7 @@ class IpaUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.ipa_digest}.ipa"
+    "#{model.id}-#{model.ipa_digest}.ipa"
   end
 
 end
