@@ -15,7 +15,7 @@ class BuildsController < ApplicationController
   end
 
   def index
-    @builds = Build.order("id DESC")
+    @builds = current_user.builds.order("id DESC")
   end
 
   def download
