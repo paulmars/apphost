@@ -9,6 +9,10 @@ body {
   margin-top: 10px;
 }
 
+img {
+  margin-bottom: 10px;
+}
+
 </style>
 
 <div class="container">
@@ -16,6 +20,10 @@ body {
     <div class="col-sm-4 col-sm-offset-4 download" style="margin-top: 4em;">
       <div class="appicon"></div>
       <h1>Download App</h1>
+
+      <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
+        <%= image_tag "icon.png", width: "100%" %>
+      </a>
 
       <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
         Download
