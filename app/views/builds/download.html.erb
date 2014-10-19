@@ -1,3 +1,16 @@
+<style type="text/css">
+
+body {
+  background-color: #333;
+  color: white;
+}
+
+.updated-at {
+  margin-top: 10px;
+}
+
+</style>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4 download" style="margin-top: 4em;">
@@ -7,6 +20,10 @@
       <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
         Download
       </a>
+
+      <p class="updated-at">
+        Updated: <%= time_ago_in_words @build.updated_at %>
+      </p>
     </div>
   </div>
 </div>

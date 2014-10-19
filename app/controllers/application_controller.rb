@@ -9,7 +9,7 @@ private
 
   def secure_prod
     return unless Rails.env.production?
-    return unless request.ssl?
+    return if request.ssl?
     redirect_to "https://apphoster.herokuapp.com/"
   end
 
