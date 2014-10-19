@@ -6,7 +6,8 @@ class BuildsController < ApplicationController
   end
 
   def create
-    if Build.create(params[:build].permit(:ipa))
+    @build = current_user.builds.new(params[:build].permit(:ipa))
+    if @build.save
       redirect_to root_url
     else
 

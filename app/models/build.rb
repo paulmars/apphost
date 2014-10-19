@@ -23,6 +23,8 @@ class Build < ActiveRecord::Base
 
   # validates :ipa_digest, uniqueness: true
 
+  belongs_to :user
+
   mount_uploader :ipa, IpaUploader
 
   def ipa_digest
