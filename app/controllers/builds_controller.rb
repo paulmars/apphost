@@ -2,6 +2,10 @@ class BuildsController < ApplicationController
   before_action :authenticate_user!, except: [:plist, :download]
   layout "normal"
 
+  def index
+    @builds = current_user.builds.order("id DESC")
+  end
+
   def new
   end
 
@@ -12,10 +16,6 @@ class BuildsController < ApplicationController
     else
 
     end
-  end
-
-  def index
-    @builds = current_user.builds.order("id DESC")
   end
 
   def download
