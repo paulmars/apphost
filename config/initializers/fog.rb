@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
     aws_access_key_id: ENV['AWS_KEY'],
     aws_secret_access_key: ENV['AWS_SECRET'],
     region: 'us-east-1',
-    endpoint: 'http://s3.amazonaws.com'
+    endpoint: 'https://s3.amazonaws.com'
   }
   if Rails.env.production?
     config.fog_directory  = 'apphosterd'                     # required

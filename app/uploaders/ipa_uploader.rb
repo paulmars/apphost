@@ -7,11 +7,12 @@ class IpaUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def store_dir
-    "builds"
+    "builds/#{model.id}"
   end
 
   def filename
-    "#{model.id}-#{model.ipa_digest}.ipa"
+    # "#{model.id}.ipa"
+    "#{model.ipa_digest}.ipa"
   end
 
 end
