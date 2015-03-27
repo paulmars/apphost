@@ -1,53 +1,28 @@
-<style type="text/css">
-
-body {
-  background-color: #333;
-  color: white;
-}
-
-.updated-at {
-  margin-top: 10px;
-}
-
-img {
-  margin-bottom: 10px;
-}
-
-.btn-success, .btn-success:hover {
-  background-color: #333;
-  border-color: #777;
-}
-
-.btn-success:hover {
-  background-color: #555;
-}
-
-</style>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4 download" style="margin-top: 0em;">
-      <div class="appicon"></div>
-      <h1>Download App</h1>
-
-      <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
-        <%= image_tag "icon.png", width: "100%" %>
-      </a>
-
-      <a class="btn btn-lg btn-block btn-success" href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>">
-        Download
-      </a>
-
-      <p class="updated-at">
-        <span class="hidden-phone hidden-tablet">
-          You should be viewing this on your phone
-        </span><br>
-        Uploaded: <%= time_ago_in_words @build.updated_at %> ago.
-      </p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apphoster</title>
+  <%= stylesheet_link_tag    'download' %>
+  <%#= javascript_include_tag 'download' %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+    <%= Sanitize::CSS.stylesheet(@build.app.css, Sanitize::Config::RELAXED) %>
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
+</head>
+<body style="background-image: url(<%= @build.app.background.url %>)">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 content">
+        <div class="icon" style="background-image: url(<%= @build.app.icon.large.url %>)"></div>
+        <h1><%= @build.app.name %></h1>
+        <h4><%= @build.app.tagline %></h4>
+        <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>" class="btn btn-primary btn-lg btn-download">
+          Download
+        </a>
+      </div>
     </div>
   </div>
-</div>
-
-<% content_for :meta do %>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
-<% end %>
+</body>
+</html>

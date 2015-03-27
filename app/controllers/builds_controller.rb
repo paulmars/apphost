@@ -20,8 +20,8 @@ class BuildsController < ApplicationController
   end
 
   def download
-    @build = Build.find_by_ipa_digest(params[:digest])
-    render layout: "application"
+    @build = Build.where(ipa_digest: params[:digest]).last
+    render layout: nil
   end
 
   def plist

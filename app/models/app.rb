@@ -4,4 +4,5 @@ class App < ActiveRecord::Base
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: { scope: :user_id }
   mount_uploader :icon, IconUploader
+  mount_uploader :background, BackgroundUploader
 end

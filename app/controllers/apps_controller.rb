@@ -70,6 +70,6 @@ class AppsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_params
-      params[:app].permit(:name, :icon)
+      params[:app].permit(:name, 'background', :icon, :tagline, :css)
     end
 end

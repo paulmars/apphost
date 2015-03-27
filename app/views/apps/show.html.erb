@@ -13,8 +13,14 @@
           <%= link_to 'Edit', edit_app_path(@app), class: "btn btn-default btn-xs" %>
         </div>
         <center>
-          <%= image_tag(@app.icon.small.url, class: "img-rounded") %>
+          <div style="display: inline-block; padding: 1em; background-image:url(<%= @app.background.url %>); background-size: cover;" class="img-rounded">
+            <%= image_tag(@app.icon.small.url, class: "img-rounded") %>
+          </div>
+
           <h3><%= @app.name %></h3>
+          <% if @app.tagline %>
+            <p><center><%= @app.tagline %></center></p>
+          <% end %>
         </center>
       </div>
       <table class="table table-striped">

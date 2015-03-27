@@ -20,7 +20,6 @@ class IpaUploader < CarrierWave::Uploader::Base
 
   def ipa
     file = IpaReader::IpaFile.new(current_path)
-    # raise model.user.inspect
     app = App.where(identifier: file.bundle_identifier).first_or_create({
       name: file.plist["CFBundleName"],
       user: model.user
