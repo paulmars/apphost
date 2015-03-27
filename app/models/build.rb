@@ -27,6 +27,12 @@ class Build < ActiveRecord::Base
 
   mount_uploader :ipa, IpaUploader
 
+  validates :ipa,
+    :presence => true,
+    :file_size => {
+      :maximum => 30.megabytes.to_i
+    }
+
   def ipa_digest
     # Check if LOCAL file exists, i.e. is uploading file
     # 1. File not changed = just read from record
