@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="list-group">
+      <% current_user.apps.each do |app| %>
+        <%= render "apps/nav_item", app: app %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body" style="position: relative;">
+        <div style="position: absolute; top: 10px; right: 10px;">
+          <%= link_to 'Edit', edit_app_path(@app), class: "btn btn-default btn-xs" %>
+        </div>
+        <center>
+          <%= image_tag(@app.icon.small.url, class: "img-rounded") %>
+          <h3><%= @app.name %></h3>
+        </center>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Uploaded</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @app.builds.each do |build| %>
+            <tr class="<%= "success" if build.created_at > 1.minutes.ago %>">
+              <td>#<%= build.id %></td>
+              <td><%= time_ago_in_words build.created_at %> ago</td>
+              <td class="actions">
+                <%= link_to "Download", download_url(build.ipa_digest), class: "btn btn-default btn-xs" %>
+                <%= link_to "Plist", plist_url(build.ipa_digest), class: "btn btn-default btn-xs" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

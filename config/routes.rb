@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :apps do
+    resources :builds
+  end
+  resources :builds
+
   devise_for :users, :path => '/',
     path_names: {
       sign_in: 'login',
@@ -14,12 +19,7 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
-  root to: "builds#index"
-
-  get "/", to: "builds#index"
-  
-  get "/new", to: "builds#new", as: "new_build"
-  post "/new", to: "builds#create"
+  root to: "apps#index"
 
   get "/:digest/download", to: "builds#download", as: "download"
   get "/:digest/plist", to: "builds#plist", as: "plist"

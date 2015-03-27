@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="list-group">
+      <% current_user.apps.each do |app| %>
+        <%= render "apps/nav_item", app: app %>
+      <% end %>
+    </div>
+  </div>
+</div>
