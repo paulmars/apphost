@@ -1,4 +1,5 @@
 require 'digest'
+require 'file_size_validator'
 
 module DigestGenerator
   ##
@@ -27,6 +28,12 @@ class Build < ActiveRecord::Base
   belongs_to :user
 
   mount_uploader :ipa, IpaUploader
+
+  validates :ipa,
+    :presence => true,
+    :file_size => {
+      :maximum => 30.megabytes.to_i
+    }
 
   def ipa_digest
     # Check if LOCAL file exists, i.e. is uploading file
