@@ -18,7 +18,7 @@
         <div class="icon" style="background-image: url(<%= @app.icon.large.url %>)"></div>
         <h1><%= @build.app.name %></h1>
         <h4><%= @build.app.tagline %></h4>
-        <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>" class="btn btn-primary btn-lg btn-download">
+        <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https", domain: "apphoster.herokuapp.com", subdomain: nil) %>" class="btn btn-primary btn-lg btn-download">
           Download
         </a>
       </div>
