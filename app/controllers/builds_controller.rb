@@ -1,5 +1,5 @@
 class BuildsController < ApplicationController
-  before_action :authenticate_user!, except: [:plist, :download]
+  before_action :authenticate_user!, except: [:plist, :download, :latest]
 
   def index
     @builds = current_user.builds.order("id DESC")
@@ -21,12 +21,23 @@ class BuildsController < ApplicationController
 
   def download
     @build = Build.where(ipa_digest: params[:digest]).last
+    @app = @build.app
     render layout: nil
   end
 
   def plist
     @build = Build.find_by_ipa_digest(params[:digest])
     render layout: false
+  end
+
+  def latest
+    @app = if params[:app_id]
+      App.find(params[:id])
+    else
+      App.where("domain = ? OR subdomain = ?", request.host, request.subdomains.first).first
+    end
+    @build = @app.builds.first
+    render action: "download", layout: false
   end
 
 end

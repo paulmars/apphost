@@ -1,11 +1,14 @@
 class AppsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_app, only: [:show, :edit, :update, :destroy]
 
   # GET /apps
   # GET /apps.json
   def index
-    @apps = App.all
-    redirect_to @apps.first
+    @apps = current_user.apps
+    if @apps.any?
+      redirect_to @apps.first
+    end
   end
 
   # GET /apps/1
@@ -70,6 +73,6 @@ class AppsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_params
-      params[:app].permit(:name, 'background', :icon, :tagline, :css)
+      params[:app].permit(:name, 'background', :icon, :tagline, :css, :subdomain)
     end
 end

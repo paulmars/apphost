@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Apphoster</title>
+  <title><%= [@app.name, @app.tagline].compact.join(" - ") %></title>
   <%= stylesheet_link_tag    'download' %>
   <%#= javascript_include_tag 'download' %>
   <%= csrf_meta_tags %>
   <style type="text/css">
-    <%= Sanitize::CSS.stylesheet(@build.app.css, Sanitize::Config::RELAXED) %>
+    <%= Sanitize::CSS.stylesheet(@app.css, Sanitize::Config::RELAXED) %>
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
 </head>
-<body style="background-image: url(<%= @build.app.background.url %>)">
+<body style="background-image: url(<%= @app.background.url %>)">
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3 content">
-        <div class="icon" style="background-image: url(<%= @build.app.icon.large.url %>)"></div>
+        <div class="icon" style="background-image: url(<%= @app.icon.large.url %>)"></div>
         <h1><%= @build.app.name %></h1>
         <h4><%= @build.app.tagline %></h4>
         <a href="itms-services://?action=download-manifest&url=<%= plist_url(@build.ipa_digest, protocol: "https") %>" class="btn btn-primary btn-lg btn-download">

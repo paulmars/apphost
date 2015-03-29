@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327032642) do
+ActiveRecord::Schema.define(version: 20150328181143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20150327032642) do
     t.string   "background"
     t.string   "tagline"
     t.text     "css"
+    t.string   "domain"
+    t.string   "subdomain"
   end
 
   create_table "builds", force: true do |t|

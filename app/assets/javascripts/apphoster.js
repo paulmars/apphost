@@ -1,28 +1,30 @@
-$(document).on('dragover', function(e) {
-  e.stopPropagation();
-  e.preventDefault();
-  $('body').addClass('file-dragover');
-})
+$(function() {
+  $('.apps-show,.apps-index').on('dragover', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('body').addClass('file-dragover');
+  })
 
-$(document).on('dragleave', function(e) {
-  e.stopPropagation();
-  e.preventDefault();
-  $('body').removeClass('file-dragover');
-})
+  $('.apps-show,.apps-index').on('dragleave', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('body').removeClass('file-dragover');
+  })
 
-$(document).on('drop', function(e) {
-  console.log('dropped');
-  e.preventDefault();
+  $('.apps-show,.apps-index').on('drop', function(e) {
+    console.log('dropped');
+    e.preventDefault();
 
-  if(e.originalEvent.dataTransfer){
-    if(e.originalEvent.dataTransfer.files.length) {
-      e.preventDefault();
-      /*UPLOAD FILES HERE*/
-      file = e.originalEvent.dataTransfer.files[0];
-      console.log(file);
-      postIPA(file);
+    if(e.originalEvent.dataTransfer){
+      if(e.originalEvent.dataTransfer.files.length) {
+        e.preventDefault();
+        /*UPLOAD FILES HERE*/
+        file = e.originalEvent.dataTransfer.files[0];
+        console.log(file);
+        postIPA(file);
+      }
     }
-  }
+  });
 });
 
 function postIPA(ipa) {
