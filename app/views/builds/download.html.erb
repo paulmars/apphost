@@ -4,6 +4,11 @@
   <title><%= [@app.name, @app.tagline].compact.join(" - ") %></title>
   <%= stylesheet_link_tag    'download' %>
   <%#= javascript_include_tag 'download' %>
+  <meta property="og:image" content="<%= @app.icon.medium.url %>" />
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:title" content="<%= @build.app.name %>" />
+  <meta property="og:description" content="<%= @build.app.tagline %>" />
   <%= csrf_meta_tags %>
   <style type="text/css">
     <%= Sanitize::CSS.stylesheet(@app.css, Sanitize::Config::RELAXED) %>
