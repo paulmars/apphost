@@ -12,6 +12,7 @@ gem 'turbolinks', '1.3.1'
 gem 'jbuilder', '~> 1.2'
 gem 'pg', '0.17.0'
 gem 'unicorn', '4.7.0'
+gem 'mini_magick'
 
 group :production do
   gem 'rails_12factor'
@@ -31,3 +32,5 @@ gem 'carrierwave'
 gem 'devise', '3.2.1'
 gem 'rails_admin', '0.6.2'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'ipa_reader'
+gem 'sanitize'

@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024220912) do
+ActiveRecord::Schema.define(version: 20150328181143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apps", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "identifier"
+    t.string   "icon"
+    t.string   "background"
+    t.string   "tagline"
+    t.text     "css"
+    t.string   "domain"
+    t.string   "subdomain"
+  end
 
   create_table "builds", force: true do |t|
     t.string   "ipa"
@@ -23,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141024220912) do
     t.string   "ipa_digest"
     t.integer  "user_id"
     t.string   "bundle_identifier"
+    t.integer  "app_id"
   end
 
   create_table "users", force: true do |t|
