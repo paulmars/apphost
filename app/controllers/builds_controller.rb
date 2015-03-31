@@ -22,7 +22,7 @@ class BuildsController < ApplicationController
   def download
     @build = Build.where(ipa_digest: params[:digest]).last
     @app = @build.app
-    render layout: nil
+    render action: "download", layout: false
   end
 
   def plist

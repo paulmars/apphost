@@ -1,4 +1,4 @@
-CENTRAL_DOMAINS = ["apphoster.dev", "apphoster.herokuapp.com", "apphost.link"]
+CENTRAL_DOMAINS = ["apphost.dev", "apphoster.dev", "apphoster.herokuapp.com", "apphost.link"]
 
 class CentralDomain
   def self.matches?(request)
