@@ -1,12 +1,14 @@
+CENTRAL_DOMAINS = ["apphoster.dev", "apphoster.herokuapp.com", "apphost.link"]
+
 class CentralDomain
   def self.matches?(request)
-    ["apphoster.dev", "apphoster.herokuapp.com", "apphost.link"].include?(request.host)
+    CENTRAL_DOMAINS.include?(request.host)
   end
 end
 
 class SiteDomain
   def self.matches?(request)
-    !["apphoster.dev", "apphoster.herokuapp.com"].include?(request.host)
+    !CENTRAL_DOMAINS.include?(request.host)
   end
 end
 
