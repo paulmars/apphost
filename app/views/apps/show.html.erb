@@ -39,7 +39,6 @@
               <td><%= time_ago_in_words build.created_at %> ago</td>
               <td class="actions">
                 <%= link_to "Download", download_url(build.ipa_digest), class: "btn btn-default btn-xs" %>
-                <%= link_to "Plist", plist_url(build.ipa_digest), class: "btn btn-default btn-xs" %>
               </td>
             </tr>
           <% end %>
